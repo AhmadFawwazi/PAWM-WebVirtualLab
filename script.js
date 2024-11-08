@@ -1,3 +1,20 @@
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyA6MsAu17vRgcbwiq7x17xKO60KjW7-JGo",
+  authDomain: "pawm-virtuallab.firebaseapp.com",
+  projectId: "pawm-virtuallab",
+  storageBucket: "pawm-virtuallab.firebasestorage.app",
+  messagingSenderId: "533037790182",
+  appId: "1:533037790182:web:9a658ef35ae863dfe8dc27",
+  measurementId: "G-PPJNY1KQNG"
+};
+
+// Inisialisasi Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Inisialisasi Firebase Authentication
+const auth = firebase.auth();
+
 // Menghitung suku ke-n untuk Deret Aritmatika
 document.getElementById('aritmatika-form').addEventListener('submit', function (e) {
   e.preventDefault();
