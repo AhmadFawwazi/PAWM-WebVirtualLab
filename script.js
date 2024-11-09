@@ -18,6 +18,7 @@ const auth = firebase.auth();
 const registerForm = document.getElementById('registerForm');
 registerForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  console.log("Register form submitted");
   const email = document.getElementById('registerEmail').value;
   const password = document.getElementById('registerPassword').value;
   
@@ -35,6 +36,7 @@ registerForm.addEventListener('submit', (e) => {
 const loginForm = document.getElementById('loginForm');
 loginForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  console.log("Login form submitted");
   const email = document.getElementById('loginEmail').value;
   const password = document.getElementById('loginPassword').value;
   
