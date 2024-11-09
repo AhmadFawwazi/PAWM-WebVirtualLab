@@ -15,6 +15,51 @@ firebase.initializeApp(firebaseConfig);
 // Inisialisasi Firebase Authentication
 const auth = firebase.auth();
 
+const registerForm = document.getElementById('registerForm');
+registerForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('registerEmail').value;
+  const password = document.getElementById('registerPassword').value;
+  
+  auth.createUserWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Registrasi berhasil
+      console.log("User registered:", userCredential.user);
+    })
+    .catch((error) => {
+      // Tangani error
+      console.error("Error registering user:", error);
+    });
+});
+
+const loginForm = document.getElementById('loginForm');
+loginForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const email = document.getElementById('loginEmail').value;
+  const password = document.getElementById('loginPassword').value;
+  
+  auth.signInWithEmailAndPassword(email, password)
+    .then((userCredential) => {
+      // Login berhasil
+      console.log("User logged in:", userCredential.user);
+    })
+    .catch((error) => {
+      // Tangani error
+      console.error("Error logging in:", error);
+    });
+});
+
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    console.log("User is logged in:", user);
+    // Tampilkan halaman atau fitur khusus pengguna yang sudah login
+  } else {
+    console.log("User is logged out");
+    // Arahkan pengguna ke halaman login atau sembunyikan fitur khusus pengguna terautentikasi
+  }
+});
+
+
 // Menghitung suku ke-n untuk Deret Aritmatika
 document.getElementById('aritmatika-form').addEventListener('submit', function (e) {
   e.preventDefault();
